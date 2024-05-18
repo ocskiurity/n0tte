@@ -1,12 +1,17 @@
 {
-  "name": "n0tte",
+  "name": "@ocskiurity/n0tte",
   "version": "1.0.0",
-  "description": "monorepo for interating with ocskiurity FHE...",
+  "description": "monorepo for interacting with ocskiurity FHE...",
+
+  "main": "./tasks/cli.ts",
+  "bin": {
+    "n0tte": "./bin/n0tte.js"
+  },
   "scripts": {
     "test": "hardhat test",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix",
     "compile": "hardhat compile",
-    "n0tte": "ts-node ./tasks/cli.ts",
+    "start": "ts-node tasks/cli.ts run-task",
     "task:deploy": "hardhat deploy",
     "task:set:bias": "hardhat set:bias",
     "task:set:weights": "hardhat set:weights",

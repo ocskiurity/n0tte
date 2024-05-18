@@ -1,22 +1,26 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "target": "ES5",
+    "module": "ES6",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
     "declarationMap": true,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "lib": [
       "es2020"
     ],
-    "module": "commonjs",
-    "moduleResolution": "node",
     "noImplicitAny": true,
     "removeComments": true,
-    "resolveJsonModule": true,
     "sourceMap": true,
-    "strict": true,
-    "target": "es2020"
   },
   "ts-node": {
     "compilerOptions": {
