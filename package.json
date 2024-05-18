@@ -6,11 +6,12 @@
     "test": "hardhat test",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix",
     "compile": "hardhat compile",
+    "n0tte": "ts-node ./tasks/cli.ts",
     "task:deploy": "hardhat deploy",
-    "task:setBias": "hardhat task:setBias",
-    "task:setWeights": "hardhat task:setWeights",
-    "task:setQuantizedData": "hardhat task:setQuantizedData",
-    "task:inference": "hardhat task:inference",
+    "task:set:bias": "hardhat set:bias",
+    "task:set:weights": "hardhat set:weights",
+    "task:set:quantized-data": "hardhat set:quantized-data",
+    "task:inference": "hardhat inference",
     "localfhenix:start": "hardhat localfhenix:start",
     "localfhenix:stop": "hardhat localfhenix:stop",
     "faucet": "hardhat task:fhenix:usefaucet"
@@ -41,7 +42,7 @@
     "@types/node": "^20.11.19",
     "axios": "^1.6.7",
     "chai": "^4.3.7",
-    "chalk": "^4.1.2",
+    "chalk": "^4",
     "dotenv": "^16.4.5",
     "ethers": "^6.11.1",
     "fhenix-hardhat-docker": "^0.1.1",
@@ -57,6 +58,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "fhenixjs": "^0.1.0-beta.6"
+    "@types/figlet": "^1.5.8",
+    "commander": "^12.1.0",
+    "fhenixjs": "^0.1.0-beta.6",
+    "figlet": "^1.7.0"
   }
 }
