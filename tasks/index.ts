@@ -1,3 +1,4 @@
-export * from "./addCount";
-export * from "./getCount";
-export * from "./getFunds";
+export * from "./setBias";
+export * from "./setWeights";
+export * from "./setQuantizedData";
+export * from "./inference";

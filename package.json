@@ -1,15 +1,16 @@
 {
-  "name": "fhenix-hardhat-example",
+  "name": "n0tte",
   "version": "1.0.0",
-  "description": "An example repository to get you started with Fhenix development",
+  "description": "monorepo for interating with ocskiurity FHE...",
   "scripts": {
     "test": "hardhat test",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix",
     "compile": "hardhat compile",
     "task:deploy": "hardhat deploy",
-    "task:addCount": "hardhat task:addCount",
-    "task:getCount": "hardhat task:getCount",
-    "task:getFunds": "hardhat task:getFunds",
+    "task:setBias": "hardhat task:setBias",
+    "task:setWeights": "hardhat task:setWeights",
+    "task:setQuantizedData": "hardhat task:setQuantizedData",
+    "task:inference": "hardhat task:inference",
     "localfhenix:start": "hardhat localfhenix:start",
     "localfhenix:stop": "hardhat localfhenix:stop",
     "faucet": "hardhat task:fhenix:usefaucet"
@@ -18,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/fhenixprotocol/fhenix-hardhat-example.git"
   },
-  "author": "Fhenix",
+  "author": "ocskiurity",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fhenixprotocol/fhenix-hardhat-example/issues"
