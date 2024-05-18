@@ -1,10 +1,9 @@
-import { EncryptedUint8 } from "fhenixjs";
-import { MLPL1 } from "../types";
+import { MLP1L } from "../types";
 import { task } from "hardhat/config";
 import type { TaskArguments } from "hardhat/types";
 
 task("task:setBias")
-  .addParam("bias", "model bias", "0")
+  .addParam("bias", "the bias of the model", "0")
   .setAction(async function (taskArguments: TaskArguments, hre) {
     const { fhenixjs, ethers, deployments } = hre;
     const [signer] = await ethers.getSigners();
@@ -14,19 +13,17 @@ task("task:setBias")
     }
 
     const bias = Number(taskArguments.bias);
-    const MLPL1 = await deployments.get("MLPL1")
+    const MLP1L = await deployments.get("MLP1L")
 
     console.log(
-      `Running addBias(${bias}), targeting contract at: ${MLPL1.address}`,
+      `Running setBias(${bias}), targeting contract at: ${MLP1L.address}`,
     );
 
-    const contract = await ethers.getContractAt("MLPL1", MLPL1.address);
+    const contract = await ethers.getContractAt("MLP1L", MLP1L.address);
 
-    let contractWithSigner = contract.connect(signer) as unknown as MLPL1;
+    let contractWithSigner = contract.connect(signer) as unknown as MLP1L;
 
     try {
-      // add() gets `bytes calldata encryptedValue`
-      // therefore we need to pass in the `data` property
       await contractWithSigner.setBias(await fhenixjs.encrypt_uint8(bias));
     } catch (e) {
       console.log(`Failed to send transaction: ${e}`);
