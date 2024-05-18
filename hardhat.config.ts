@@ -6,6 +6,10 @@ import {config as dotenvConfig} from "dotenv";
 import "fhenix-hardhat-docker";
 import "fhenix-hardhat-plugin";
 import "hardhat-deploy";
+import "./tasks/setBias";
+import "./tasks/setQuantizedData";
+import "./tasks/setWeights";
+import "./tasks/inference";
 import {HardhatUserConfig} from "hardhat/config";
 import {resolve} from "path";
 
