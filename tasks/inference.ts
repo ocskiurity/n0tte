@@ -21,6 +21,5 @@ task("inference").setAction(async function (
     log(`decrypting the result`)
     const decryptedInference: any = await contractWithSigner.getDecryptedInferenceExecution();
 
-    log(`Result: ${decryptedInference.toString()}`)
-    log(`ok`)
+    log(`Diagnosis: ${decryptedInference > 127 ? "malignant" : "benign"}`)
 });
