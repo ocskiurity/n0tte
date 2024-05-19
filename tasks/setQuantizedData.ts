@@ -20,10 +20,10 @@ task("set:quantized-data")
 
     let quantizedData: Array<number>;
 
-    if (!quantizedDataJson.input)
+    if (quantizedDataJson.input.length <= 0)
       quantizedData = taskArguments.quantizedData
-
-    quantizedData = quantizedDataJson.input[0]
+    else
+      quantizedData = quantizedDataJson.input[0]
 
     try {
       log(`encrypting and setting the quantized data with FHE on-chain`)
@@ -33,7 +33,7 @@ task("set:quantized-data")
 
         await contractWithSigner.setQuantizedData(encWeight);
       }
-      
+
       log(`ok`)
     } catch (e) {
       console.log(`Failed to send transaction: ${e}`);

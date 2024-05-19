@@ -15,11 +15,12 @@ task("inference").setAction(async function (
 
     log(`running FHE encrypted ML inference of the MLP1L model`)
 
-    for (let i = 0; i < 30; i++)
+    for (let i = 0; i < 30; i++) {
         await contractWithSigner.inference();
+    }
 
     log(`decrypting the result`)
     const decryptedInference: any = await contractWithSigner.getDecryptedInferenceExecution();
-
+    log(decryptedInference)
     log(`Diagnosis: ${decryptedInference > 127 ? "malignant" : "benign"}`)
 });

@@ -20,9 +20,9 @@ task("set:weights")
 
     let weights: Array<number>;
 
-    if (!modelJson.weights)
+    if (modelJson.weights.length <= 0)
       weights = taskArguments.weights
-
+    else
       weights = modelJson.weights[0]
 
     try {

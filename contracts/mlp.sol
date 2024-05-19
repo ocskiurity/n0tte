@@ -61,22 +61,14 @@ contract MLP1L {
   function inference() external {
     address sender = msg.sender;
 
-    if (userToInfCnt[sender] == numberOfComputations) {
-      /// @todo
-      // userToAcc[sender] = sigmoid(userToAcc[sender]);
-      userToInfCnt[sender] = 0;
-      userToQuantizedData[sender] = new euint8[](quantizedDataDim);
-    }
+    /// @todo implement reset w/ numberOfComputations.
 
     // execute FHE encrypted inference step.
     /// @dev scalar product between quantized data and weights.
-    userToAcc[sender] = FHE.add(
-      userToInfCnt[sender] == 0 ? bias : userToAcc[sender],
-      FHE.mul(
-        userToQuantizedData[sender][userToInfCnt[sender]],
-        weights[userToInfCnt[sender]]
-      )
-    );
+    userToAcc[sender] = userToAcc[sender] + 
+        userToQuantizedData[sender][userToInfCnt[sender]] *
+        weights[userToInfCnt[sender]];
+      
 
     // increment the inference step counter.
     userToInfCnt[sender] = userToInfCnt[sender] + 1;
