@@ -9,6 +9,9 @@ task("set:bias")
   .setAction(async function (taskArguments: TaskArguments, hre) {
     const { fhenixjs, ethers, deployments } = hre;
     const [signer] = await ethers.getSigners();
+    if ((await ethers.provider.getBalance(signer.address)).toString() === "0") {
+      await fhenixjs.getFunds(signer.address);
+    }
     const MLP1L = await deployments.get("MLP1L")
     const contract = await ethers.getContractAt("MLP1L", MLP1L.address);
     let contractWithSigner = contract.connect(signer) as unknown as MLP1L;

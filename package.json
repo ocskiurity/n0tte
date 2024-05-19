@@ -1,15 +1,15 @@
 {
   "name": "@ocskiurity/n0tte",
-  "version": "1.0.0",
-  "description": "monorepo for interacting with ocskiurity FHE...",
-
-  "main": "./tasks/cli.ts",
+  "version": "1.0.6",
+  "description": "CLI tool for FHE-ML tasks",
+  "main": "./dist/tasks/cli.js",
   "bin": {
-    "n0tte": "./bin/n0tte.js"
+    "n0tte": "./dist/tasks/cli.js"
   },
   "scripts": {
     "test": "hardhat test",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix",
+    "build": "tsc",
     "compile": "hardhat compile",
     "start": "ts-node tasks/cli.ts run-task",
     "task:deploy": "hardhat deploy",
@@ -58,7 +58,6 @@
     "mocha": "^10.3.0",
     "rimraf": "^5.0.5",
     "solidity-coverage": "^0.8.7",
-    "ts-node": "^10.9.2",
     "typechain": "^8.3.2",
     "typescript": "^5.3.3"
   },
@@ -66,6 +65,7 @@
     "@types/figlet": "^1.5.8",
     "commander": "^12.1.0",
     "fhenixjs": "^0.1.0-beta.6",
-    "figlet": "^1.7.0"
+    "figlet": "^1.7.0",
+    "ts-node": "^10.9.2"
   }
 }

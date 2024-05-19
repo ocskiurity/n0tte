@@ -20,7 +20,7 @@ dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
 const TESTNET_CHAIN_ID = 42069;
 const TESTNET_RPC_URL = "https://api.testnet.fhenix.zone:7747";
 
-const testnetConfig = {
+const testnetConfig: any = {
     chainId: TESTNET_CHAIN_ID,
     url: TESTNET_RPC_URL,
 }
