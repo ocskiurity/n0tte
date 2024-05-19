@@ -3,7 +3,7 @@
 import { program } from "commander"
 import { exec } from "child_process"
 import { log } from "console";
-import { welcome } from "./shared";
+import { welcome, textPrimaryBold } from "./shared";
 
 program
   .name("@ocskiurity/n0tte")
@@ -24,7 +24,7 @@ program
         console.error(`Stderr: ${stderr}`);
         return;
       }
-      log(stdout);
+      log(`${textPrimaryBold(stdout)}`);
     });
   });
 

@@ -13,14 +13,14 @@ task("inference").setAction(async function (
     const contract = await ethers.getContractAt("MLP1L", MLP1L.address);
     let contractWithSigner = contract.connect(signer) as unknown as MLP1L;
 
-    log(`running FHE encrypted ML inference of the MLP1L model`)
+    log(`\n🐺 running FHE-ML inference on-chain...`)
 
     for (let i = 0; i < 30; i++) {
         await contractWithSigner.inference();
     }
 
-    log(`decrypting the result`)
+    log(`✨ decrypting the inference with FHE`)
     const decryptedInference: any = await contractWithSigner.getDecryptedInferenceExecution();
-    log(decryptedInference)
-    log(`Diagnosis: ${decryptedInference > 127 ? "malignant" : "benign"}`)
+
+    log(`\n\nraw ${decryptedInference} classified as ${decryptedInference > 127 ? "malignant 👿" : "benign 😈"}`)
 });

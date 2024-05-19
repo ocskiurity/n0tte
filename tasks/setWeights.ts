@@ -16,7 +16,7 @@ task("set:weights")
     const contract = await ethers.getContractAt("MLP1L", MLP1L.address);
     let contractWithSigner = contract.connect(signer) as unknown as MLP1L;
 
-    log(`getting the weights`)
+    log(`\n🔻 getting the weights`)
 
     let weights: Array<number>;
 
@@ -26,7 +26,7 @@ task("set:weights")
       weights = modelJson.weights[0]
 
     try {
-      log(`encrypting and setting the weights with FHE on-chain`)
+      log(`✨ encrypting the weights with FHE`)
 
       for (let i = 0; i < weights.length; i++) {
         const encWeight = await fhenixjs.encrypt_uint8(weights[i])
@@ -34,7 +34,7 @@ task("set:weights")
         await contractWithSigner.setWeight(encWeight);
       }
 
-      log(`ok`)
+      log(`💫 weights ready`)
     } catch (e) {
       console.log(`Failed to send transaction: ${e}`);
       return;

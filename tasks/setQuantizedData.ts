@@ -16,7 +16,7 @@ task("set:quantized-data")
     const contract = await ethers.getContractAt("MLP1L", MLP1L.address);
     let contractWithSigner = contract.connect(signer) as unknown as MLP1L;
 
-    log(`getting the quantized data`)
+    log(`\n🔻 getting the quantized data`)
 
     let quantizedData: Array<number>;
 
@@ -26,7 +26,7 @@ task("set:quantized-data")
       quantizedData = quantizedDataJson.input[0]
 
     try {
-      log(`encrypting and setting the quantized data with FHE on-chain`)
+      log(`✨ encrypting the quantized data with FHE`)
 
       for (let i = 0; i < quantizedData.length; i++) {
         const encWeight = await fhenixjs.encrypt_uint8(quantizedData[i])
@@ -34,7 +34,7 @@ task("set:quantized-data")
         await contractWithSigner.setQuantizedData(encWeight);
       }
 
-      log(`ok`)
+      log(`💫 data ready`)
     } catch (e) {
       console.log(`Failed to send transaction: ${e}`);
       return;
