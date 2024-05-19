@@ -1,7 +1,7 @@
 {
   "name": "@ocskiurity/n0tte",
   "version": "1.0.6",
-  "description": "CLI tool for FHE-ML tasks",
+  "description": "n0tte enables private on-chain FHE-ML inference on one-layer MLP models interacting with a command-line interface running hardhat scripts.",
   "main": "./dist/tasks/cli.js",
   "bin": {
     "n0tte": "./dist/tasks/cli.js"
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "hardhat test",
     "clean": "rimraf ./artifacts ./cache ./coverage ./types ./coverage.json ./deployments/localfhenix",
-    "build": "tsc",
+    "build": "tsc && pnpm compile",
     "compile": "hardhat compile",
     "start": "ts-node tasks/cli.ts run-task",
     "task:deploy": "hardhat deploy",
