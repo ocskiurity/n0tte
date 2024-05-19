@@ -17,6 +17,7 @@
     "task:set:weights": "hardhat set:weights",
     "task:set:quantized-data": "hardhat set:quantized-data",
     "task:inference": "hardhat inference",
+    "task:all": "hardhat all",
     "localfhenix:start": "hardhat localfhenix:start",
     "localfhenix:stop": "hardhat localfhenix:stop",
     "faucet": "hardhat task:fhenix:usefaucet"
